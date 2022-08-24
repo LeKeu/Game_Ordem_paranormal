@@ -8,6 +8,7 @@ public class bala : MonoBehaviour
     Camera mainCam;
     Rigidbody2D rb;
     public float forca;
+    public int dano;
     Renderer r;
 
     // Start is called before the first frame update
