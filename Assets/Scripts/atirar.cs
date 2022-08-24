@@ -12,6 +12,9 @@ public class atirar : MonoBehaviour
     public bool canFire;
     private float timer;
     public float timeBetweenFiring;
+    //#########################
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +44,11 @@ public class atirar : MonoBehaviour
         {
             canFire = false;
             Instantiate(bala, balaTransf.position, Quaternion.identity);
+            
+            
         }
+        
     }
+
+    
 }
