@@ -1,20 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class healthBar : MonoBehaviour
+public class HealthBar : MonoBehaviour
 {
-    healthSystem healthSys;
+    public Slider slider;
+    public Gradient gradient;
+    public Image fill;
 
-    public void SetUp(healthSystem healthSys)
+    public void SetMaxHealth(int health)
     {
-        this.healthSys = healthSys;
-        healthSys.OnHealthChanged += healthSystem_OnHealthChanged;
+        slider.maxValue = health;
+        slider.value = health;
+
+        fill.color = gradient.Evaluate(1f);
     }
 
-    private void healthSystem_OnHealthChanged(object slender, System.EventArgs e)
+    public void SetHealth(int health)
     {
-        transform.Find("Bar").localScale = new Vector3(healthSys.GetHealthPercent(), 1);
-        Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        slider.value = health;
+
+        fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 }
