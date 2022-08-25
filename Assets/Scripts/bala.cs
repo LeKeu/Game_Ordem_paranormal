@@ -38,7 +38,7 @@ public class bala : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Inimigo")
+        if (collision.gameObject.tag == "Inimigo" || collision.gameObject.tag == "InimigoFast")
         {
             //Destroy(collision.gameObject);
             Destroy(this.gameObject);
