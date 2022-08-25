@@ -44,6 +44,7 @@ public class atirar : MonoBehaviour
         {
             canFire = false;
             Instantiate(bala, balaTransf.position, Quaternion.identity);
+            cinemachineShake.Instance.shakeCam(5f, .1f);
             
             
         }
