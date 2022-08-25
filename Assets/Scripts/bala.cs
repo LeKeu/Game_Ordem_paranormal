@@ -40,7 +40,7 @@ public class bala : MonoBehaviour
     {
         if (collision.gameObject.tag == "Inimigo")
         {
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
     }
