@@ -30,6 +30,10 @@ public class PlayerVida : MonoBehaviour
         {
             Dano(15);
         }
+        else if(collision.gameObject.tag == "InimigoFast")
+        {
+            Dano(10);
+        }
     }
 
     void Dano(int damage)
