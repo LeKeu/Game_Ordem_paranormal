@@ -10,6 +10,7 @@ public class bala : MonoBehaviour
     public float forca;
     public int dano;
     Renderer r;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,16 @@ public class bala : MonoBehaviour
         {
             //Destroy(collision.gameObject);
             Destroy(this.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Inimigo" || collision.gameObject.tag == "InimigoFast")
+        {
+            //Destroy(collision.gameObject);
+            Debug.Log("WOWOWOOW");
+            //Destroy(this.gameObject);
         }
     }
 }

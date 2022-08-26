@@ -2192,8 +2192,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bala: {fileID: 8981283412587013485, guid: 92af08f6220c7f646acd89cdc88af940, type: 3}
   balaTransf: {fileID: 644259578}
+  balaEsp: {fileID: 8981283412587013485, guid: 1cba23a45ebb14745ac795521acf020b, type: 3}
+  balaEspTransf: {fileID: 8981283412587013474, guid: 1cba23a45ebb14745ac795521acf020b, type: 3}
   canFire: 1
   timeBetweenFiring: 0.01
+  canFireE: 1
+  timeBetweenFiringE: 5
+  pointer: {fileID: 644259578}
 --- !u!1 &1754647303
 GameObject:
   m_ObjectHideFlags: 0
