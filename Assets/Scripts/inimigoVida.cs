@@ -32,6 +32,14 @@ public class inimigoVida : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "BalaEspecial")
+        {
+            Dano(10);
+        }
+    }
+
     void Dano(int damage)
     {
         currentHealth -= damage;
