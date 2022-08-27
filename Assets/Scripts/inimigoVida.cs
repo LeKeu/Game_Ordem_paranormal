@@ -6,6 +6,8 @@ public class inimigoVida : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    [SerializeField] GameObject sangueNormal;
+    [SerializeField] GameObject sangueMorte;
 
     public HealthBar healthBar;
     // Start is called before the first frame update
@@ -21,6 +23,7 @@ public class inimigoVida : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(this.gameObject);
+            Instantiate(sangueMorte, transform.position, Quaternion.identity);
         }
     }
 
@@ -28,6 +31,7 @@ public class inimigoVida : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bala")
         {
+            Instantiate(sangueNormal, transform.position, Quaternion.identity);
             Dano(15);
         }
     }
@@ -36,6 +40,7 @@ public class inimigoVida : MonoBehaviour
     {
         if (collision.gameObject.tag == "BalaEspecial")
         {
+            Instantiate(sangueNormal, transform.position, Quaternion.identity);
             Dano(10);
         }
     }
