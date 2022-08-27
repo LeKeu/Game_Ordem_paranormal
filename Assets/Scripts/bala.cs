@@ -33,7 +33,7 @@ public class bala : MonoBehaviour
     {
         if (!r.isVisible)
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 1f);
         }
     }
 

@@ -19,6 +19,7 @@ public class atirar : MonoBehaviour
     public float timeBetweenFiringE;
     //#########################
     [SerializeField] Transform pointer;
+    [SerializeField] GameObject balaShell;
 
 
     // Start is called before the first frame update
@@ -60,23 +61,35 @@ public class atirar : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && canFire)
         {
-            
-            canFire = false;
-            Instantiate(bala, balaTransf.position, Quaternion.identity);
-            //Debug.Log(balaTransf.position);
-            cinemachineShake.Instance.shakeCam(5f, .1f);    
-            
+            AtirarNormal();
+            Instantiate(balaShell, transform.position, Quaternion.identity);
         }
         if (Input.GetMouseButtonDown(1) && canFireE)
         {
-            Vector3 posE = new Vector3(pointer.position.x, pointer.position.y, 0);
-            
-            canFireE = false;
-            Instantiate(balaEsp, posE, Quaternion.identity);
-            //Debug.Log(balaEspTransf.position);
-            cinemachineShake.Instance.shakeCam(5f, .1f);
+            AtirarEsp();
+            Instantiate(balaShell, transform.position, Quaternion.identity);
         }
         
+    }
+
+    public void AtirarNormal()
+    {
+        canFire = false;
+        Instantiate(bala, balaTransf.position, Quaternion.identity);
+        
+        //Debug.Log(balaTransf.position);
+        cinemachineShake.Instance.shakeCam(5f, .1f);
+    }
+
+    public void AtirarEsp()
+    {
+        Vector3 posE = new Vector3(pointer.position.x, pointer.position.y, 0);
+
+        canFireE = false;
+        Instantiate(balaEsp, posE, Quaternion.identity);
+       
+        //Debug.Log(balaEspTransf.position);
+        cinemachineShake.Instance.shakeCam(5f, .1f);
     }
 
     
