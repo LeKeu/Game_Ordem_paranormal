@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerVida : MonoBehaviour
 {
@@ -9,9 +10,13 @@ public class PlayerVida : MonoBehaviour
     public float forca;
 
     public HealthBar healthBar;
+    score scoreScript;
+
     // Start is called before the first frame update
     void Start()
     {
+        scoreScript = GameObject.FindObjectOfType<score>();
+
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -21,7 +26,8 @@ public class PlayerVida : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            Time.timeScale = 0;
+            scoreScript.SalvarScore();
+            SceneManager.LoadScene("Menu");
         }
     }
 
