@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 6644580353851971979}
   - component: {fileID: 6644580353851971978}
   m_Layer: 0
-  m_Name: IniPref
-  m_TagString: Inimigo
+  m_Name: IniBoss2
+  m_TagString: InimigoBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ca168c628742e4081c11c3b6164b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 150
+  maxHealth: 500
   currentHealth: 0
   sangueNormal: {fileID: 2604742381597987347, guid: 326f895377c7cb249ba0a834f1b751e9, type: 3}
   sangueMorte: {fileID: 7464497191815939459, guid: 7ade484b0a0e11b4686833f468c6bf91, type: 3}

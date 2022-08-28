@@ -10,6 +10,7 @@ TagManager:
   - BalaEspecial
   - InimigoRanged
   - BalaInRanged
+  - InimigoBoss
   layers:
   - Default
   - TransparentFX

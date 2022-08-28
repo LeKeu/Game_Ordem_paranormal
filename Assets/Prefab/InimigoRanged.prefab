@@ -300,7 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movSpeed: 5
   enemyProject: {fileID: 8785151573822607770, guid: 10be9bcc6ace7f84b8387511e4b6f7ee, type: 3}
-  followPlyrRange: 20
+  followPlyrRange: 30
   attackRange: 8
   startTimeBetwShots: 0.5
 --- !u!1 &103063470548973482
