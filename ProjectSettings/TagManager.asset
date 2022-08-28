@@ -9,6 +9,7 @@ TagManager:
   - InimigoFast
   - BalaEspecial
   - InimigoRanged
+  - BalaInRanged
   layers:
   - Default
   - TransparentFX

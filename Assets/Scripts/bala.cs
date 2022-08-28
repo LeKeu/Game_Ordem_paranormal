@@ -39,7 +39,7 @@ public class bala : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Inimigo" || collision.gameObject.tag == "InimigoFast")
+        if (collision.gameObject.tag == "Inimigo" || collision.gameObject.tag == "InimigoFast" || collision.gameObject.tag == "InimigoRanged")
         {
             //Destroy(collision.gameObject);
             Destroy(this.gameObject);
@@ -48,7 +48,7 @@ public class bala : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Inimigo" || collision.gameObject.tag == "InimigoFast")
+        if (collision.gameObject.tag == "Inimigo" || collision.gameObject.tag == "InimigoFast" || collision.gameObject.tag == "InimigoRanged")
         {
             //Destroy(collision.gameObject);
             Debug.Log("WOWOWOOW");

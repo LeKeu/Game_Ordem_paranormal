@@ -36,6 +36,7 @@ public class plyrMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        rb2D.drag = 20;
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
 

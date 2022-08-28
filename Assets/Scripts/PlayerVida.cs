@@ -6,6 +6,7 @@ public class PlayerVida : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public float forca;
 
     public HealthBar healthBar;
     // Start is called before the first frame update
@@ -26,13 +27,28 @@ public class PlayerVida : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Inimigo")
+        var magnitude = 2500;
+
+        var force = transform.position - collision.transform.position;
+
+        force.Normalize();
+        GetComponent<Rigidbody2D>().AddForce(force * magnitude);
+
+        if (collision.gameObject.tag == "Inimigo")
         {
             Dano(15);
         }
         else if(collision.gameObject.tag == "InimigoFast")
         {
             Dano(10);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "BalaInRanged")
+        {
+            Dano(20);
         }
     }
 
