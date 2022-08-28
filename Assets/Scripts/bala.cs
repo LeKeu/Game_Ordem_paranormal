@@ -10,11 +10,13 @@ public class bala : MonoBehaviour
     public float forca;
     public int dano;
     Renderer r;
+
    
 
     // Start is called before the first frame update
     void Start()
     {
+
         r = GetComponent<Renderer>();
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         rb = gameObject.GetComponent<Rigidbody2D>();
