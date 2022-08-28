@@ -11,10 +11,12 @@ public class inimigoVida : MonoBehaviour
 
     public HealthBar healthBar;
     score scoreScript;
+    WaveSp waveScript;
     // Start is called before the first frame update
     void Start()
     {
-        scoreScript = GameObject.FindObjectOfType<score>(); 
+        scoreScript = GameObject.FindObjectOfType<score>();
+        waveScript = GameObject.FindObjectOfType<WaveSp>();
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -25,6 +27,7 @@ public class inimigoVida : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            waveScript.InimiDestr();
             scoreScript.aumentarScoreN();
             Destroy(this.gameObject);
             Instantiate(sangueMorte, transform.position, Quaternion.identity);

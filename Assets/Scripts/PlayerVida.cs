@@ -48,6 +48,10 @@ public class PlayerVida : MonoBehaviour
         {
             Dano(10);
         }
+        else if (collision.gameObject.tag == "InimigoBoss")
+        {
+            Dano(50);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
