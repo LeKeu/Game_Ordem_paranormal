@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 [System.Serializable]
 
 public class Wave
@@ -13,6 +14,9 @@ public class Wave
 
 public class WaveSp : MonoBehaviour
 {
+
+    [SerializeField] TextMeshProUGUI waveTxt;
+
     [SerializeField] Wave[] waves;
     int indexWave;
 
@@ -39,6 +43,7 @@ public class WaveSp : MonoBehaviour
     {
         //auxWave = waves[indexWave];
         SpawnWave();
+        TextWave();
         if (inimigosOn.Count == 0 && !canSpawn)
         {
             indexWave++;
@@ -76,5 +81,10 @@ public class WaveSp : MonoBehaviour
     public void InimiDestr()
     {
         inimigosOn.RemoveAt(0);
+    }
+
+    void TextWave()
+    {
+        waveTxt.text = "WAVE: " + indexWave;
     }
 }

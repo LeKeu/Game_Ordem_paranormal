@@ -12,9 +12,11 @@ public class inimigoVida : MonoBehaviour
     public HealthBar healthBar;
     score scoreScript;
     WaveSp waveScript;
+    Rigidbody2D rb2D;
     // Start is called before the first frame update
     void Start()
     {
+        rb2D = GetComponent<Rigidbody2D>();
         scoreScript = GameObject.FindObjectOfType<score>();
         waveScript = GameObject.FindObjectOfType<WaveSp>();
 
@@ -27,8 +29,22 @@ public class inimigoVida : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            if(rb2D.gameObject.tag == "Inimigo")
+            {
+                scoreScript.aumentarScoreN();
+            }else if (rb2D.gameObject.tag == "InimigoFast")
+            {
+                scoreScript.aumentarScoreFast();
+            }
+            else if (rb2D.gameObject.tag == "InimigoRanged")
+            {
+                scoreScript.aumentarScoreRanged();
+            }
+            else if (rb2D.gameObject.tag == "InimigoBoss")
+            {
+                scoreScript.aumentarScoreBoss();
+            }
             waveScript.InimiDestr();
-            scoreScript.aumentarScoreN();
             Destroy(this.gameObject);
             Instantiate(sangueMorte, transform.position, Quaternion.identity);
         }

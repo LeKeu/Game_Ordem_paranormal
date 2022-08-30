@@ -6,8 +6,8 @@ public class InimigoRanged : MonoBehaviour
 {
     public float movSpeed;
     GameObject player;
-    GameObject shotPoint;
-    Transform arma;
+    public GameObject shotPoint;
+    GameObject arma;
 
     public GameObject enemyProject;
 
@@ -25,20 +25,20 @@ public class InimigoRanged : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
-        shotPoint = GameObject.Find("shotPoint");
-        arma = gameObject.transform.Find("armaRanged");
+        //shotPoint = GameObject.Find("shotPoint");
+        arma = GameObject.Find("armaRanged");
     }
 
     // Update is called once per frame
     void Update()
     {
         rb.drag = 20;
-        Vector3 differ = player.gameObject.transform.position - arma.position;
+        Vector2 differ = player.gameObject.transform.position - this.shotPoint.gameObject.transform.position;
         float rotz = Mathf.Atan2(differ.y, differ.x) * Mathf.Rad2Deg;
-        arma.rotation = Quaternion.Euler(0f, 0f, rotz);
+        this.shotPoint.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, rotz);
 
-        if (Vector2.Distance(transform.position, player.gameObject.transform.position) <= followPlyrRange 
-            && Vector2.Distance(transform.position,player.gameObject.transform.position) > attackRange)
+        if (Vector2.Distance(this.transform.position, player.gameObject.transform.position) <= followPlyrRange 
+            && Vector2.Distance(this.transform.position,player.gameObject.transform.position) > attackRange)
         {
             inRange = true;
         }
@@ -47,11 +47,11 @@ public class InimigoRanged : MonoBehaviour
             inRange = false;
         }
 
-        if (Vector2.Distance(transform.position, player.gameObject.transform.position) <= attackRange)
+        if (Vector2.Distance(this.transform.position, player.gameObject.transform.position) <= attackRange)
         {
             if (timeBetwShots <= 0)
             {
-                Instantiate(enemyProject, shotPoint.transform.position, shotPoint.transform.rotation);
+                Instantiate(enemyProject, this.rb.position, this.shotPoint.transform.rotation);
                 timeBetwShots = startTimeBetwShots;
             }
             else
@@ -65,7 +65,7 @@ public class InimigoRanged : MonoBehaviour
     {
         if (inRange)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.gameObject.transform.position, movSpeed * Time.deltaTime);
+            this.transform.position = Vector2.MoveTowards(this.transform.position, player.gameObject.transform.position, movSpeed * Time.deltaTime);
         }
     }
 

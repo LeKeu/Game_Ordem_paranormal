@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64661cb1d431ce40aba368291f3086b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velInimigo: 1
+  velInimigo: 2
 --- !u!61 &6644580353851971976
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -136,7 +136,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6644580353851971972}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

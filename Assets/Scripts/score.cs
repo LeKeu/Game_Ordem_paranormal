@@ -25,6 +25,21 @@ public class score : MonoBehaviour
         scr += 100;
     }
 
+    public void aumentarScoreFast()
+    {
+        scr += 60;
+    }
+
+    public void aumentarScoreRanged()
+    {
+        scr += 80;
+    }
+
+    public void aumentarScoreBoss()
+    {
+        scr += 300;
+    }
+
     public void SalvarScore()
     {
         if (scr > PlayerPrefs.GetInt("highscore", 0))
