@@ -7,19 +7,35 @@ public class atirar : MonoBehaviour
     private Camera mainCam;
     private Vector3 mousePos;
     //#########################
+    [SerializeField] Transform pointer;
+    [SerializeField] GameObject balaShell;
+    //#########################
+    [SerializeField] LayerMask AoE;
+
+    //#########################
+    [Header("Balas")]
     public GameObject bala;
     public Transform balaTransf;
     public GameObject balaEsp;
     public Transform balaEspTransf;
+
+
+    [Header("Bala NORMAL")]
     public bool canFire;
     private float timer;
     public float timeBetweenFiring;
+
+    [Header("Bala ESPECIAL")]
     public bool canFireE;
     private float timerE;
     public float timeBetweenFiringE;
-    //#########################
-    [SerializeField] Transform pointer;
-    [SerializeField] GameObject balaShell;
+
+    [Header("EXPLOSION")]
+    public bool canFireEx;
+    private float timerEx;
+    public float timeBetweenFiringEx;
+    public float rangeExpl;
+
 
     private void Awake()
     {
@@ -28,8 +44,8 @@ public class atirar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();  
-        //pointer = GetComponent<Transform>();
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
     }
 
     // Update is called once per frame
@@ -62,6 +78,16 @@ public class atirar : MonoBehaviour
             }
         }
 
+        if (!canFireEx)
+        {
+            timerEx += Time.deltaTime;
+            if (timerEx > timeBetweenFiringEx)
+            {
+                canFireEx = true;
+                timerEx = 0;
+            }
+        }
+
         if (Input.GetMouseButtonDown(0) && canFire)
         {
             AtirarNormal();
@@ -72,7 +98,12 @@ public class atirar : MonoBehaviour
             AtirarEsp();
             Instantiate(balaShell, transform.position, Quaternion.identity);
         }
-        
+        if (Input.GetKeyDown(KeyCode.V) && canFireEx)
+        {
+            Debug.Log("entrou explosao");
+            Explosion();
+        }
+
     }
 
     public void AtirarNormal()
@@ -95,5 +126,25 @@ public class atirar : MonoBehaviour
         cinemachineShake.Instance.shakeCam(5f, .1f);
     }
 
-    
+    public void Explosion()
+    {
+        Vector2 origin = new Vector2(transform.position.x, transform.position.y);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(origin, rangeExpl, AoE);
+
+        foreach (Collider2D c in colliders)
+        {
+            if (c.GetComponent<inimigoVida>())
+            {
+                c.GetComponent<inimigoVida>().ExplDamage();
+            }
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, rangeExpl);
+    }
+
+
 }
