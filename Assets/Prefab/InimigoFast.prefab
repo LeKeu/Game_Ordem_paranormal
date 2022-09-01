@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5959865491872047877}
   - component: {fileID: 5959865491872047876}
   - component: {fileID: 5959865491872047875}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 5959865491881697160}
   - component: {fileID: 5959865491881697162}
   - component: {fileID: 5959865491881697161}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 5959865492654398793}
   - component: {fileID: 5959865492654398792}
   - component: {fileID: 5959865492654398791}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InimigoFast
   m_TagString: InimigoFast
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 5959865492764326347}
   - component: {fileID: 5959865492764326349}
   - component: {fileID: 5959865492764326348}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 5959865493648199781}
   - component: {fileID: 5959865493648199783}
   - component: {fileID: 5959865493648199782}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}

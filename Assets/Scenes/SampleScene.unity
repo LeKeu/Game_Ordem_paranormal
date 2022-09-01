@@ -2302,8 +2302,14 @@ MonoBehaviour:
   timeBetweenFiring: 0.01
   canFireE: 1
   timeBetweenFiringE: 5
+  canFireEx: 1
+  timeBetweenFiringEx: 3
+  rangeExpl: 5
   pointer: {fileID: 644259578}
   balaShell: {fileID: 5633168855866816644, guid: 8267c0a21daa0864081de16162c4c849, type: 3}
+  AoE:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1754647303
 GameObject:
   m_ObjectHideFlags: 0

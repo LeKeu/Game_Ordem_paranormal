@@ -68,6 +68,14 @@ public class inimigoVida : MonoBehaviour
         }
     }
 
+    public void ExplDamage()
+    {
+        Debug.Log("oi1");
+        Instantiate(sangueNormal, transform.position, Quaternion.identity);
+        Dano(50);
+        Debug.Log("oi2");
+    }
+
     void Dano(int damage)
     {
         currentHealth -= damage;
