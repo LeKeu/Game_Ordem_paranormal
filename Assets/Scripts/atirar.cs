@@ -11,6 +11,7 @@ public class atirar : MonoBehaviour
     [SerializeField] GameObject balaShell;
     //#########################
     [SerializeField] LayerMask AoE;
+    [SerializeField] GameObject explosionPart;
 
     //#########################
     [Header("Balas")]
@@ -98,7 +99,7 @@ public class atirar : MonoBehaviour
             AtirarEsp();
             Instantiate(balaShell, transform.position, Quaternion.identity);
         }
-        if (Input.GetKeyDown(KeyCode.V) && canFireEx)
+        if (Input.GetMouseButtonDown(2) && canFireEx)
         {
             Debug.Log("entrou explosao");
             Explosion();
@@ -130,6 +131,11 @@ public class atirar : MonoBehaviour
     {
         Vector2 origin = new Vector2(transform.position.x, transform.position.y);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(origin, rangeExpl, AoE);
+        Instantiate(explosionPart, transform.position, Quaternion.identity);
+
+        cinemachineShake.Instance.shakeCam(10f, .5f);
+
+        canFireEx = false;
 
         foreach (Collider2D c in colliders)
         {
