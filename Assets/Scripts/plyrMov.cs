@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class plyrMov : MonoBehaviour
 {
@@ -24,12 +25,14 @@ public class plyrMov : MonoBehaviour
     bool teste = false;
 
     [SerializeField] KeyCode tecla;
+    [SerializeField] Image imgCDDash;
     // Start is called before the first frame update
     void Start()
     {
         dustRend = GetComponent<ParticleSystemRenderer>();
         t = GetComponent<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
+        imgCDDash.fillAmount = 0.0f;
         activeSpeed = vel;
     }
 
@@ -59,10 +62,11 @@ public class plyrMov : MonoBehaviour
                 teste = false;
             }
         }
-
-            if (Input.GetKeyDown(tecla))
+        
+        if (Input.GetKeyDown(tecla))
         {
             CriarDust();
+            imgCDDash.fillAmount = 1f;
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
                 activeSpeed = dashVel;
@@ -75,6 +79,7 @@ public class plyrMov : MonoBehaviour
             dashCounter -= Time.deltaTime;
             if(dashCounter <= 0)
             {
+                imgCDDash.fillAmount = 0f;
                 activeSpeed = vel;
                 dashCoolCounter = dashCooldown;
             }
