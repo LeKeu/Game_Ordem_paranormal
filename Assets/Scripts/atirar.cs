@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class atirar : MonoBehaviour
 {
@@ -37,6 +39,10 @@ public class atirar : MonoBehaviour
     public float timeBetweenFiringEx;
     public float rangeExpl;
 
+    [Header("Icons CoolDown")]
+    [SerializeField] Image imgCDExplsion;
+    [SerializeField] Image imgCDBalaESp;
+
 
     private void Awake()
     {
@@ -45,6 +51,8 @@ public class atirar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        imgCDBalaESp.fillAmount = 0.0f;
+        imgCDExplsion.fillAmount = 0.0f;
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
     }
@@ -74,6 +82,7 @@ public class atirar : MonoBehaviour
             timerE += Time.deltaTime;
             if (timerE > timeBetweenFiringE)
             {
+                imgCDBalaESp.fillAmount = 0f;
                 canFireE = true;
                 timerE = 0;
             }
@@ -81,9 +90,12 @@ public class atirar : MonoBehaviour
 
         if (!canFireEx)
         {
+            
             timerEx += Time.deltaTime;
+            Debug.Log(timerEx);
             if (timerEx > timeBetweenFiringEx)
             {
+                imgCDExplsion.fillAmount = 0f;
                 canFireEx = true;
                 timerEx = 0;
             }
@@ -111,24 +123,25 @@ public class atirar : MonoBehaviour
     {
         canFire = false;
         Instantiate(bala, balaTransf.position, Quaternion.identity);
-        
-        //Debug.Log(balaTransf.position);
+    
         cinemachineShake.Instance.shakeCam(5f, .1f);
     }
 
     public void AtirarEsp()
     {
+        imgCDBalaESp.fillAmount = 1f;
         Vector3 posE = new Vector3(pointer.position.x, pointer.position.y, 0);
 
         canFireE = false;
         Instantiate(balaEsp, posE, Quaternion.identity);
-       
-        //Debug.Log(balaEspTransf.position);
+
         cinemachineShake.Instance.shakeCam(5f, .1f);
     }
 
     public void Explosion()
     {
+        imgCDExplsion.fillAmount = 1f;
+
         Vector2 origin = new Vector2(transform.position.x, transform.position.y);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(origin, rangeExpl, AoE);
         Instantiate(explosionPart, transform.position, Quaternion.identity);

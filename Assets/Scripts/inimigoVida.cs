@@ -64,7 +64,7 @@ public class inimigoVida : MonoBehaviour
         if (collision.gameObject.tag == "BalaEspecial")
         {
             Instantiate(sangueNormal, transform.position, Quaternion.identity);
-            Dano(20);
+            Dano(45);
         }
     }
 
