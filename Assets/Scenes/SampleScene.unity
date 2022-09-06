@@ -8520,7 +8520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54e2c46463d557429190fc0a808c2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 500
   currentHealth: 0
   forca: 0
   healthBar: {fileID: 883597020}
@@ -9068,7 +9068,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.515026, y: 1}
+    m_SensorSize: {x: 1.4352334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

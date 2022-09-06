@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6644580353851971973}
   - component: {fileID: 6644580353851971982}
-  - component: {fileID: 6644580353851971977}
   - component: {fileID: 6644580353851971976}
   - component: {fileID: 6644580353851971979}
   - component: {fileID: 6644580353851971978}
+  - component: {fileID: -6848443985250900749}
   m_Layer: 7
   m_Name: IniBoss1
   m_TagString: InimigoBoss
@@ -89,19 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6644580353851971977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6644580353851971972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a64661cb1d431ce40aba368291f3086b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velInimigo: 2
 --- !u!61 &6644580353851971976
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -166,6 +153,22 @@ MonoBehaviour:
   sangueNormal: {fileID: 2604742381597987347, guid: 326f895377c7cb249ba0a834f1b751e9, type: 3}
   sangueMorte: {fileID: 7464497191815939459, guid: 7ade484b0a0e11b4686833f468c6bf91, type: 3}
   healthBar: {fileID: 6644580355096650122}
+--- !u!114 &-6848443985250900749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6644580353851971972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf8361ff3e35ac4cbdb05eb6363bb67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velInimigo: 2
+  velDash: 10
+  intervTempo: 5
+  duracaoDash: 1
 --- !u!1 &6644580354128897093
 GameObject:
   m_ObjectHideFlags: 0
