@@ -92,7 +92,7 @@ public class atirar : MonoBehaviour
         {
             
             timerEx += Time.deltaTime;
-            Debug.Log(timerEx);
+            //Debug.Log(timerEx);
             if (timerEx > timeBetweenFiringEx)
             {
                 imgCDExplsion.fillAmount = 0f;

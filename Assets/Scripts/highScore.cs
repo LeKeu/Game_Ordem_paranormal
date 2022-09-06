@@ -10,6 +10,7 @@ public class highScore : MonoBehaviour
     [SerializeField] TextMeshProUGUI highScoreTXT;
     [SerializeField] KeyCode key;
     [SerializeField] KeyCode keySaida;
+    [SerializeField] Animator transicao;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class highScore : MonoBehaviour
     {
         if (Input.GetKey(key))
         {
-            SceneManager.LoadScene("SampleScene");
+            nextEcene();
         }
         if (Input.GetKey(keySaida))
         {
@@ -28,5 +29,18 @@ public class highScore : MonoBehaviour
         }
         
 
+    }
+
+    void nextEcene()
+    {
+        StartCoroutine(LoadLeve());
+    }
+
+    IEnumerator LoadLeve()
+    {
+        transicao.SetTrigger("Start");
+
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("SampleScene");
     }
 }
