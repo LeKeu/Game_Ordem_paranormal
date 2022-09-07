@@ -14,6 +14,7 @@ public class BossDash : MonoBehaviour
     float auxSeg;
     float aux;
     bool canDash;
+    float rand_number;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class BossDash : MonoBehaviour
         aux = velInimigo;
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
+        rand_number = Random.Range(3f, 8f);
         StartCoroutine(DashTeste());
     }
 
@@ -35,9 +37,10 @@ public class BossDash : MonoBehaviour
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, velInimigo * Time.deltaTime);
         
         auxSeg += Time.deltaTime;
-        Debug.Log(auxSeg);
-        if(auxSeg >= intervTempo)
+        //Debug.Log(auxSeg);
+        if(auxSeg >= rand_number)
         {
+            Debug.Log(rand_number);
             StartCoroutine(DashTeste());
             auxSeg = 0;
         }
@@ -52,6 +55,9 @@ public class BossDash : MonoBehaviour
         Debug.Log("O BOSS TA RAPIDAO MN");
         yield return new WaitForSeconds(duracaoDash);
         velInimigo = aux;
+        rand_number = Random.Range(3f, 8f);
+
+        Debug.Log(rand_number);
     }
 
 }
