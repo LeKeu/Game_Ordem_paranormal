@@ -68,7 +68,7 @@ public class WaveSp : MonoBehaviour
                 if ((indexWave % 5) == 0)
                 {
                     Debug.Log("BOSS");
-                    GameObject randBoss = inimigoBoss[Random.Range(0, 1)];
+                    GameObject randBoss = inimigoBoss[Random.Range(0, 2)];
                     Transform randPointB = spawnPoints[Random.Range(0, 4)];
                     Instantiate(randBoss, randPointB.position, Quaternion.identity);
                     inimigosOn.Add(randBoss);
