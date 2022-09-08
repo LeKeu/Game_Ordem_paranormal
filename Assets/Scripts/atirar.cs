@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static Unity.Burst.Intrinsics.X86;
 
 public class atirar : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class atirar : MonoBehaviour
     //#########################
     [SerializeField] LayerMask AoE;
     [SerializeField] GameObject explosionPart;
+    [SerializeField] GameObject ritual_decad;
 
     //#########################
     [Header("Balas")]
@@ -42,6 +44,10 @@ public class atirar : MonoBehaviour
     [Header("Icons CoolDown")]
     [SerializeField] Image imgCDExplsion;
     [SerializeField] Image imgCDBalaESp;
+
+    [Header("Sound Effects")]
+    [SerializeField] AudioSource balaNormalAudio;
+
 
 
     private void Awake()
@@ -121,6 +127,7 @@ public class atirar : MonoBehaviour
 
     public void AtirarNormal()
     {
+        balaNormalAudio.Play();
         canFire = false;
         Instantiate(bala, balaTransf.position, Quaternion.identity);
     
@@ -157,12 +164,21 @@ public class atirar : MonoBehaviour
                 c.GetComponent<inimigoVida>().ExplDamage();
             }
         }
+        StartCoroutine(RitTempo());
     }
 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, rangeExpl);
+    }
+
+    IEnumerator RitTempo()
+    {
+        ritual_decad.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        ritual_decad.SetActive(false);
+
     }
 
 
