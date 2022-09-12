@@ -28,12 +28,14 @@ public class plyrMov : MonoBehaviour
     [SerializeField] Image imgCDDash;
 
     AudioSource correrAudio;
+    AudioSource dashAudio;
     bool tocar;
     // Start is called before the first frame update
     void Start()
     {
         tocar = false;
         correrAudio = GameObject.Find("correr").GetComponent<AudioSource>();
+        dashAudio = GameObject.Find("dash").GetComponent<AudioSource>();
 
         dustRend = GetComponent<ParticleSystemRenderer>();
         t = GetComponent<SpriteRenderer>();
@@ -84,10 +86,12 @@ public class plyrMov : MonoBehaviour
         
         if (Input.GetKeyDown(tecla))
         {
+            dashAudio.Play();
             CriarDust();
-            imgCDDash.fillAmount = 1f;
+            
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
+                imgCDDash.fillAmount = 1f;
                 activeSpeed = dashVel;
                 dashCounter = tamanhoDash;
             }
