@@ -10,12 +10,16 @@ public class inimigoVida : MonoBehaviour
     [SerializeField] GameObject sangueMorte;
 
     public HealthBar healthBar;
+    AudioSource splat;
+
     score scoreScript;
     WaveSp waveScript;
+
     Rigidbody2D rb2D;
     // Start is called before the first frame update
     void Start()
     {
+        splat = GameObject.Find("Splat").GetComponent<AudioSource>();
         rb2D = GetComponent<Rigidbody2D>();
         scoreScript = GameObject.FindObjectOfType<score>();
         waveScript = GameObject.FindObjectOfType<WaveSp>();
@@ -29,7 +33,8 @@ public class inimigoVida : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            if(rb2D.gameObject.tag == "Inimigo")
+            splat.Play();
+            if (rb2D.gameObject.tag == "Inimigo")
             {
                 scoreScript.aumentarScoreN();
             }else if (rb2D.gameObject.tag == "InimigoFast")
@@ -54,6 +59,7 @@ public class inimigoVida : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bala")
         {
+            
             Instantiate(sangueNormal, transform.position, Quaternion.identity);
             Dano(15);
         }

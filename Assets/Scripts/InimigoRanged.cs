@@ -17,16 +17,23 @@ public class InimigoRanged : MonoBehaviour
 
     public float startTimeBetwShots;
     private float timeBetwShots;
+    public Animator animator;
+    SpriteRenderer sr;
 
     Rigidbody2D rb;
+    AudioSource hiss;
+
+    //TOCAR O HISS DA COBRA
 
     // Start is called before the first frame update
     void Start()
     {
+        hiss = GameObject.Find("snake").GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
         //shotPoint = GameObject.Find("shotPoint");
         arma = GameObject.Find("armaRanged");
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -41,10 +48,12 @@ public class InimigoRanged : MonoBehaviour
             && Vector2.Distance(this.transform.position,player.gameObject.transform.position) > attackRange)
         {
             inRange = true;
+            animator.SetFloat("Speed", 1f);
         }
         else
         {
             inRange = false;
+            animator.SetFloat("Speed", 0f);
         }
 
         if (Vector2.Distance(this.transform.position, player.gameObject.transform.position) <= attackRange)
@@ -58,6 +67,15 @@ public class InimigoRanged : MonoBehaviour
             {
                 timeBetwShots -= Time.deltaTime;
             }
+        }
+
+        if (player.gameObject.transform.position.x > transform.position.x)
+        {
+            sr.flipX = true;
+        }
+        else
+        {
+            sr.flipX = false;
         }
     }
 

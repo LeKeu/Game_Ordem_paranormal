@@ -46,7 +46,10 @@ public class atirar : MonoBehaviour
     [SerializeField] Image imgCDBalaESp;
 
     [Header("Sound Effects")]
+    [SerializeField] AudioClip balaNormalClip;
     [SerializeField] AudioSource balaNormalAudio;
+    [SerializeField] AudioSource balaEspAudio;
+    [SerializeField] AudioSource explsAudio;
 
 
 
@@ -127,7 +130,7 @@ public class atirar : MonoBehaviour
 
     public void AtirarNormal()
     {
-        balaNormalAudio.Play();
+        balaNormalAudio.PlayOneShot(balaNormalClip);
         canFire = false;
         Instantiate(bala, balaTransf.position, Quaternion.identity);
     
@@ -136,6 +139,7 @@ public class atirar : MonoBehaviour
 
     public void AtirarEsp()
     {
+        balaEspAudio.Play();
         imgCDBalaESp.fillAmount = 1f;
         Vector3 posE = new Vector3(pointer.position.x, pointer.position.y, 0);
 
@@ -147,6 +151,7 @@ public class atirar : MonoBehaviour
 
     public void Explosion()
     {
+        explsAudio.Play();
         imgCDExplsion.fillAmount = 1f;
 
         Vector2 origin = new Vector2(transform.position.x, transform.position.y);
