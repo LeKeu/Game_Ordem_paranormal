@@ -67,8 +67,6 @@ public class PlayerVida : MonoBehaviour
         force.Normalize();
         GetComponent<Rigidbody2D>().AddForce(force * magnitude);
 
-        
-        Debug.Log("ENCOSTOU");
 
         if (collision.gameObject.tag == "Inimigo")
         {
