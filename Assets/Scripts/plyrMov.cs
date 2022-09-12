@@ -26,9 +26,15 @@ public class plyrMov : MonoBehaviour
 
     [SerializeField] KeyCode tecla;
     [SerializeField] Image imgCDDash;
+
+    AudioSource correrAudio;
+    bool tocar;
     // Start is called before the first frame update
     void Start()
     {
+        tocar = false;
+        correrAudio = GameObject.Find("correr").GetComponent<AudioSource>();
+
         dustRend = GetComponent<ParticleSystemRenderer>();
         t = GetComponent<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
@@ -45,8 +51,21 @@ public class plyrMov : MonoBehaviour
 
         transform.Translate(moveInput * Time.deltaTime * activeSpeed);
 
+        if (moveInput == Vector2.zero)
+        {
+            correrAudio.Stop();
+        }
+        else
+        {
+            if (!correrAudio.isPlaying)
+            {
+                correrAudio.Play();
+            }
+        }
+
         if (moveInput.x == -1)
         {
+            
             if (!teste)
             {
                 Flipar1();

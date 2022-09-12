@@ -8,7 +8,12 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+
     [SerializeField] Slider musicSlider;
+    [SerializeField] Slider sfxSlider;
+
+    public AudioSource music;
+    public AudioSource[] sfx;
     // Update is called once per frame
     void Update()
     {
@@ -47,6 +52,14 @@ public class PauseMenu : MonoBehaviour
 
     public void changeVolumeMUSIC()
     {
-        AudioListener.volume = musicSlider.value;
+        music.volume = musicSlider.value;
+    }
+
+    public void changeVolumeSFX()
+    {
+        for(int i = 0; i < sfx.Length; i++)
+        {
+            sfx[i].volume = sfxSlider.value;
+        }
     }
 }
