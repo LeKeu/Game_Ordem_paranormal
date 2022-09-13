@@ -12,8 +12,7 @@ public class plyrMov : MonoBehaviour
     public ParticleSystem dust;
     ParticleSystemRenderer dustRend;
     
-    //aaaaaaaaaaaaaaaa
-
+    //DASH
     private float activeSpeed;
     public float dashVel;
 
@@ -24,12 +23,18 @@ public class plyrMov : MonoBehaviour
 
     bool teste = false;
 
+    //DASH IMAGE ICON
     [SerializeField] KeyCode tecla;
     [SerializeField] Image imgCDDash;
 
+    //AUDIO DASH/CORRER
     AudioSource correrAudio;
     AudioSource dashAudio;
     bool tocar;
+
+    //PLAYER ANIMATION 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -94,6 +99,7 @@ public class plyrMov : MonoBehaviour
                 imgCDDash.fillAmount = 1f;
                 activeSpeed = dashVel;
                 dashCounter = tamanhoDash;
+                animator.SetBool("Dash", true);
             }
         }
 
@@ -102,6 +108,7 @@ public class plyrMov : MonoBehaviour
             dashCounter -= Time.deltaTime;
             if(dashCounter <= 0)
             {
+                animator.SetBool("Dash", false);
                 imgCDDash.fillAmount = 0f;
                 activeSpeed = vel;
                 dashCoolCounter = dashCooldown;
