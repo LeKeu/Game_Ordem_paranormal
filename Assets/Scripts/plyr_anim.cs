@@ -9,15 +9,25 @@ public class plyr_anim : MonoBehaviour
     Rigidbody2D rb;
     public Animator animator;
     bool frenteAux = false;
+    
+    select_personagem s_persn_script;
+    string aux_index;
+
+
+    string[] persn = new string[] { "animator01", "animator02" };
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         trans = GetComponent<Transform>();
         sr = GetComponent<SpriteRenderer>();
+
+        //PlayerPrefs.GetInt("highscore");
+
+        animator.runtimeAnimatorController = Resources.Load(persn[PlayerPrefs.GetInt("personagem", 0)]) as RuntimeAnimatorController;
     }
 
-    // Update is called once per frame
     void Update()
     {
         frenteAux = true;
