@@ -10786,7 +10786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54e2c46463d557429190fc0a808c2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 500
   currentHealth: 0
   forca: 0
   healthBar: {fileID: 883597020}
@@ -12153,7 +12153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1411961572148421354, guid: 9824b340a6fc9434197432289fc52ad8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.06
+      value: 1.66
       objectReference: {fileID: 0}
     - target: {fileID: 1411961572148421354, guid: 9824b340a6fc9434197432289fc52ad8, type: 3}
       propertyPath: m_LocalPosition.y

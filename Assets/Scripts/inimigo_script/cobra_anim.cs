@@ -15,8 +15,9 @@ public class cobra_anim : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         trans = GetComponent<Transform>();
-        player = GameObject.Find("Player");
         sr = GetComponent<SpriteRenderer>();
+        player = GameObject.Find("Player");
+        
     }
 
     // Update is called once per frame
@@ -24,12 +25,10 @@ public class cobra_anim : MonoBehaviour
     {
         if (player.gameObject.transform.position.x > transform.position.x)
         {
-            Debug.Log("player na direita");
             sr.flipX = true;
         }
         else
         {
-            Debug.Log("player na esquerda");
             sr.flipX = false;
         }
 
