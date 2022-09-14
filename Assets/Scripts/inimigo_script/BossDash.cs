@@ -16,6 +16,11 @@ public class BossDash : MonoBehaviour
     bool canDash;
     float rand_number;
 
+    //ANIMATION
+    Transform trans; 
+    SpriteRenderer sr;
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,13 +28,27 @@ public class BossDash : MonoBehaviour
         aux = velInimigo;
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
+        trans = GetComponent<Transform>();
+        sr = GetComponent<SpriteRenderer>();
         rand_number = Random.Range(3f, 8f);
         StartCoroutine(DashTeste());
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (player.gameObject.transform.position.x > transform.position.x)
+        {
+            Debug.Log("player na direita");
+            sr.flipX = true;
+        }
+        else
+        {
+            Debug.Log("player na esquerda");
+            sr.flipX = false;
+        }
+
         rb.drag = 20;
         dist = Vector2.Distance(transform.position, player.transform.position);
         //Vector2 direc = player.transform.position - transform.position;
@@ -51,9 +70,12 @@ public class BossDash : MonoBehaviour
 
     IEnumerator DashTeste()
     {
+
         velInimigo = velDash;
+        animator.SetBool("Correr", true);
         Debug.Log("O BOSS TA RAPIDAO MN");
         yield return new WaitForSeconds(duracaoDash);
+        animator.SetBool("Correr", false);
         velInimigo = aux;
         rand_number = Random.Range(3f, 8f);
 
