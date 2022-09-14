@@ -14,7 +14,7 @@ public class plyr_anim : MonoBehaviour
     string aux_index;
 
 
-    string[] persn = new string[] { "animator01", "animator02" };
+    string[] persn = new string[] { "animator01", "animator02", "animator03", "animator04", "animator05" };
 
     // Start is called before the first frame update
     void Start()
