@@ -21,11 +21,14 @@ public class BossDash : MonoBehaviour
     SpriteRenderer sr;
     public Animator animator;
 
+    AudioSource baterAudio;
+
     // Start is called before the first frame update
     void Start()
     {
         auxSeg = 0;
         aux = velInimigo;
+        baterAudio = GameObject.Find("bater_barto").GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
         trans = GetComponent<Transform>();
@@ -80,6 +83,14 @@ public class BossDash : MonoBehaviour
         rand_number = Random.Range(3f, 8f);
 
         Debug.Log(rand_number);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            baterAudio.Play();
+        }
     }
 
 }

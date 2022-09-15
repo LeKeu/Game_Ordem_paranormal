@@ -11,6 +11,8 @@ TagManager:
   - InimigoRanged
   - BalaInRanged
   - InimigoBoss
+  - boss1
+  - boss2
   layers:
   - Default
   - TransparentFX
