@@ -15,6 +15,10 @@ public class inimigoCheck_sound : MonoBehaviour
     [SerializeField] AudioClip[] snakeSoundList;
     AudioSource auxSnake;
     bool waitSnake = true;
+    //#######################
+    [SerializeField] AudioClip[] bartoSoundList;
+    AudioSource auxBarto;
+    bool waitBarto = true;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +26,7 @@ public class inimigoCheck_sound : MonoBehaviour
         auxPig = GameObject.Find("pig").GetComponent<AudioSource>();
         auxDog = GameObject.Find("dog").GetComponent<AudioSource>();
         auxSnake = GameObject.Find("snake").GetComponent<AudioSource>();
+        auxBarto = GameObject.Find("barto").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,6 +44,10 @@ public class inimigoCheck_sound : MonoBehaviour
         if (GameObject.Find("InimigoRanged(Clone)") != null && waitSnake)
         {
             StartCoroutine(SoundsSnake());
+        }
+        if (GameObject.Find("IniBoss1(Clone)") != null && waitBarto)
+        {
+            StartCoroutine(SoundsBarto());
         }
     }
 
@@ -67,5 +76,14 @@ public class inimigoCheck_sound : MonoBehaviour
         waitSnake = false;
         yield return new WaitForSeconds(4);
         waitSnake = true;
+    }
+
+    IEnumerator SoundsBarto()
+    {
+        AudioClip clip = bartoSoundList[Random.Range(0, bartoSoundList.Length)];
+        auxBarto.PlayOneShot(clip);
+        waitBarto = false;
+        yield return new WaitForSeconds(5);
+        waitBarto = true;
     }
 }
