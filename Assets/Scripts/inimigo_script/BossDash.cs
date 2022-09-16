@@ -43,12 +43,10 @@ public class BossDash : MonoBehaviour
     {
         if (player.gameObject.transform.position.x > transform.position.x)
         {
-            Debug.Log("player na direita");
             sr.flipX = true;
         }
         else
         {
-            Debug.Log("player na esquerda");
             sr.flipX = false;
         }
 
@@ -76,7 +74,6 @@ public class BossDash : MonoBehaviour
 
         velInimigo = velDash;
         animator.SetBool("Correr", true);
-        Debug.Log("O BOSS TA RAPIDAO MN");
         yield return new WaitForSeconds(duracaoDash);
         animator.SetBool("Correr", false);
         velInimigo = aux;

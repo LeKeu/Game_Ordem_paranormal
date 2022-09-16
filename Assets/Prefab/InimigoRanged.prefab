@@ -303,7 +303,7 @@ MonoBehaviour:
   shotPoint: {fileID: 103063470118488162}
   enemyProject: {fileID: 8785151573822607770, guid: 10be9bcc6ace7f84b8387511e4b6f7ee, type: 3}
   followPlyrRange: 50
-  attackRange: 8
+  attackRange: 6
   startTimeBetwShots: 0.5
   animator: {fileID: 8429414229990821712}
 --- !u!95 &8429414229990821712

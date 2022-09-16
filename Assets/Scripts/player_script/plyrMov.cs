@@ -91,15 +91,18 @@ public class plyrMov : MonoBehaviour
         
         if (Input.GetKeyDown(tecla))
         {
-            dashAudio.Play();
-            CriarDust();
+            
             
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
+                dashAudio.Play();
+                CriarDust();
                 imgCDDash.fillAmount = 1f;
                 activeSpeed = dashVel;
                 dashCounter = tamanhoDash;
                 animator.SetBool("Dash", true);
+
+                StartCoroutine(dashTime());
             }
         }
 
@@ -109,7 +112,7 @@ public class plyrMov : MonoBehaviour
             if(dashCounter <= 0)
             {
                 animator.SetBool("Dash", false);
-                imgCDDash.fillAmount = 0f;
+                
                 activeSpeed = vel;
                 dashCoolCounter = dashCooldown;
             }
@@ -119,6 +122,12 @@ public class plyrMov : MonoBehaviour
         {
             dashCoolCounter -= Time.deltaTime;  
         }
+    }
+
+    IEnumerator dashTime()
+    {
+        yield return new WaitForSeconds(3);
+        imgCDDash.fillAmount = 0f;
     }
 
     void Flipar1()

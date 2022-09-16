@@ -13,6 +13,7 @@ TagManager:
   - InimigoBoss
   - boss1
   - boss2
+  - arvore
   layers:
   - Default
   - TransparentFX
