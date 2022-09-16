@@ -7,6 +7,16 @@ public class menu_buts : MonoBehaviour
 {
     [SerializeField] Animator transicao;
 
+    public void Sair()
+    {
+        Application.Quit();
+    }
+
+    private void Awake()
+    {
+        Cursor.visible = true;
+    }
+
     public void Jogar()
     {
         StartCoroutine(LoadJogo());
