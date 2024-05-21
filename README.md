@@ -1,4 +1,4 @@
-# Ordem_paranormal
+# Ordem Paranormal: Sinfonia dos Amalgamados
 Feito por Letícia Keuffer (github atual) e Vítor Longhi (github: VLR03)
 "adaptação" de ordem paranormal o RPG
 
